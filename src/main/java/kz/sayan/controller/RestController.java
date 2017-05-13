@@ -29,11 +29,10 @@ public class RestController {
     }
 
     @RequestMapping(value = "/name", method = RequestMethod.GET)
-    public String hello() {
-        ModelAndView model = new ModelAndView("print");
+    public String hello(Map<String, Object> model) {
         logger.debug("hello is executed - $name {}");
-        model.addObject("title", "Den");
-        model.addObject("msg", "Some description for this project");
+        model.put("title", "Den");
+        model.put("msg", "Some description for this project");
 
         return "print";
 
